@@ -23,9 +23,8 @@ Este proyecto incluye un ejemplo sencillo de cómo implementar concurrencia en J
 
 3. **Interfaz gráfica de usuario**: La interfaz gráfica de usuario muestra a los `Cliente` y a los `Mesero`. Cuando un `Cliente` es atendido, se elimina de la interfaz gráfica de usuario. Cuando todos los `Cliente` han sido atendidos, se muestra un mensaje y se interrumpen los hilos `Mesero`.
 
-4. **Interrupción de los hilos**: Los hilos `Mesero` pueden ser interrumpidos de dos maneras. Una forma es cuando todos los `Cliente` han sido atendidos. La otra forma es cuando se pulsa el botón de detener. Cuando un hilo `Mesero` es interrumpido, deja de atender a los `Cliente` y termina su ejecución.
-
-5. **Detener los meseros**: Cuando se pulsa el botón de detener, se interrumpen todos los hilos `Mesero` y se cierra la interfaz gráfica de usuario del restaurante.
+4. **Interrupción de los hilos**: Los hilos Mesero pueden ser interrumpidos de dos maneras. Una forma es cuando el numero de Clientes sobrepasa el limite de atendidos (1000). La otra forma es cuando se pulsa el botón de detener. Cuando un hilo Mesero es interrumpido, deja de atender a los Cliente y cambia su estado a interrumpido, después de un poco, termina su ejecución.
+5. **Detener los meseros**: Cuando se pulsa el botón de detener, se interrumpen todos los hilos Mesero y se cierra la interfaz gráfica de usuario del restaurante.
 
 
 # Uso de la concurrencia
