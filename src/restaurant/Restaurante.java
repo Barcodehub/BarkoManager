@@ -1,8 +1,10 @@
 package restaurant;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.*;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class Restaurante {
@@ -27,6 +29,7 @@ public class Restaurante {
         frame.setLayout(null);
         frame.setSize(800, 600);
         
+        
          frame = new JFrame("Restaurante");
         frame.setLayout(null);
         frame.setSize(800, 600);
@@ -46,7 +49,7 @@ public class Restaurante {
             frame.add(meserosGUI[i]);
         }
         stopButton = new JButton("Detener");
-        stopButton.setBounds(50, 500, 100, 50);
+        stopButton.setBounds(50, 250, 100, 50);
         stopButton.addActionListener(e -> detenerMeseros());
         frame.add(stopButton);
         frame.setVisible(true);
@@ -71,18 +74,23 @@ public class Restaurante {
     }
 
     public Cliente obtenerCliente() {
-        synchronized (lock) {
-            while (colaClientes.isEmpty()) {
-                try {
-                    lock.wait();
-                } catch (InterruptedException e) {
-                    // El hilo fue interrumpido, devuelve null
-                    return null;
-                }
+    synchronized (lock) {
+        while (colaClientes.isEmpty()) {
+            try {
+                lock.wait();
+            } catch (InterruptedException e) {
+                // El hilo fue interrumpido, devuelve null
+                Thread.currentThread().interrupt(); // Restablece el estado de interrupción
+                return null;
             }
-            return colaClientes.poll();
         }
+        // Comprueba si el hilo ha sido interrumpido después de esperar
+        if (Thread.currentThread().isInterrupted()) {
+            return null;
+        }
+        return colaClientes.poll();
     }
+}
     
 
     public ClienteGUI obtenerClienteGUI(int index) {
@@ -100,30 +108,51 @@ public class Restaurante {
 }
     
     
-     private int clientesAtendidos = 0;
-    public void clienteAtendido() {
-        synchronized (lock) {
-            clientesAtendidos++;
-            if (clientesAtendidos == NUM_CLIENTES) {
-                JOptionPane.showMessageDialog(frame, "Todos los clientes fueron atendidos");
-                for (Thread mesero : meseros) {
-                    mesero.interrupt();
-                }
-               
+    private List<Integer> espaciosVacios = new ArrayList<>();
+
+       int clientesAtendidos;
+public void clienteAtendido(int indexClienteAtendido) {
+    synchronized (lock) {
+        clientesAtendidos++;
+        // Agrega el índice del cliente atendido a la lista de espacios vacíos
+        espaciosVacios.add(indexClienteAtendido);
+        
+        // Crea un nuevo cliente después de que uno ha sido atendido
+        if (!espaciosVacios.isEmpty()) {
+            try {
+                // Espera 5 segundos
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                //e.printStackTrace();
             }
-            if (clientesAtendidos >= 50000) {
-                for (Thread mesero : meseros) {
-                    mesero.interrupt();
-                } 
+            if (clientesAtendidos >=1000){
+            for (Thread mesero : meseros) {
+            mesero.interrupt();
+            clientesAtendidos = 9999;
         }
-            
+            }
+            // Toma un índice de la lista de espacios vacíos
+            int indexNuevoCliente = espaciosVacios.remove(0);
+            // Crea un nuevo cliente
+            Cliente nuevoCliente = new Cliente("Cliente" + (clientesAtendidos + 1), indexNuevoCliente);
+            // Agrega el nuevo cliente a la cola
+            agregarCliente(nuevoCliente);
+            // Crea y agrega un nuevo ClienteGUI al frame
+            ClienteGUI nuevoClienteGUI = new ClienteGUI();
+            nuevoClienteGUI.moverA(50 * indexNuevoCliente, 50);
+            frame.add(nuevoClienteGUI);
+            // Actualiza el array clientesGUI
+            clientesGUI[indexNuevoCliente] = nuevoClienteGUI;
+            frame.revalidate();
+            frame.repaint();
+        }
     }
-    }
+}
     
        public void detenerMeseros() {
         for (Thread mesero : meseros) {
             mesero.interrupt();
-            clientesAtendidos = 53000;
+            clientesAtendidos = 9999;
         }
         frame.dispose();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

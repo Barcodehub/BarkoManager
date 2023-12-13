@@ -26,7 +26,7 @@ public class Mesero implements Runnable {
         
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                meseroGUI.moverA(clienteGUI.getX(), clienteGUI.getY());
+                meseroGUI.moverA(clienteGUI.getX()-8, clienteGUI.getY()-8);
             }
         });
 
@@ -55,9 +55,11 @@ public class Mesero implements Runnable {
                 // El hilo fue interrumpido, termina la ejecución
                 break;
             }
+                if (restaurante.clientesAtendidos <1000){
                 atenderCliente(cliente);
                 restaurante.eliminarClienteGUI(cliente.getIndex());
-                 restaurante.clienteAtendido();
+                restaurante.clienteAtendido(cliente.getIndex());
+                }
             }
         } catch (InterruptedException e) {
             e.printStackTrace();

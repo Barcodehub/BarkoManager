@@ -50,6 +50,8 @@ String definicion = "";
         jButton10 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("BarkoManager_Documentacion");
+        setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 255));
 
@@ -163,13 +165,12 @@ String definicion = "";
                         .addComponent(jButton5)
                         .addGap(18, 18, 18)
                         .addComponent(jButton6)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(180, 180, 180))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -190,15 +191,17 @@ String definicion = "";
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
                 .addComponent(jButton10)
                 .addGap(18, 18, 18))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 925, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 925, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,8 +214,8 @@ String definicion = "";
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
             
         
-        definicion = "SFC\n" +
-"/scannow: es el parámetro más usado y se encarga de analizar la integridad de todos los\n" +
+        definicion = "SFC/scannow: \n\n"
+                + "es el parámetro más usado y se encarga de analizar la integridad de todos los\n" +
 "archivos del sistema y repara los archivos con algún tipo de error";
         
         text(definicion);
@@ -246,8 +249,8 @@ String definicion = "";
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
             definicion = "Analisis de Malware\n"
-                 + "Comando mrt \n"
-                 + "Cuando ejecutas mrt en la línea de comandos, se abrirá la interfaz gráfica de usuario de la herramienta de eliminación de software malintencionado. A partir de ahí, puedes elegir entre varios tipos de escaneos, incluyendo un escaneo rápido, un escaneo completo o un escaneo personalizado de ciertas carpetas en tu sistema.";
+                 + "\nComando mrt \n"
+                 + "\nCuando ejecutas mrt en la línea de comandos, se abrirá la interfaz gráfica de usuario de la herramienta de eliminación de software malintencionado. A partir de ahí, puedes elegir entre varios tipos de escaneos, incluyendo un escaneo rápido, un escaneo completo o un escaneo personalizado de ciertas carpetas en tu sistema.";
         
         text(definicion);
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -276,24 +279,13 @@ String definicion = "";
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-            definicion = "Para comprobar si una imagen es reparable\n" +
+        definicion = "Cuando ejecutas chkdsk c: /f /r, le estás pidiendo a tu computadora que haga lo siguiente:\n" +
 "\n" +
-"Examine la imagen para comprobar si hay daños. Esta operación puede tardar varios minutos. Por ejemplo, en el símbolo del sistema, escriba el siguiente comando:\n" +
-"\n" +
-"\n" +
-"Dism /Online /Cleanup-Image /ScanHealth\n" +
-"Compruebe la imagen para ver si se ha detectado algún daño. Por ejemplo, en el símbolo del sistema, escribe:\n" +
-"\n" +
-"\n" +
-"Dism /Online /Cleanup-Image /CheckHealth\n" +
-"Al usar el argumento /CheckHealth sfc, la herramienta DISM notificará si la imagen es correcta, reparable o no reparable. Si la imagen no es reparable, debe descartar la imagen e iniciarla de nuevo. Si la imagen es reparable, puede usar el argumento /RestoreHealth para repararla.\n" +
-"\n" +
-"Para reparar una imagen\n" +
-"\n" +
-"Use el argumento /RestoreHealth para reparar la imagen. Por ejemplo, para reparar una imagen sin conexión mediante una imagen montada como origen de reparación, en un símbolo del sistema, escriba el siguiente comando:\n" +
-"\n" +
-"\n" +
-"Dism /Image:C:\\offline /Cleanup-Image /RestoreHealth";
+"\nInicia la utilidad Check Disk (chkdsk): Esta utilidad examina el disco duro en busca de errores.\n" +
+"\nSelecciona el disco C (c:): Le dice a la utilidad que quieres examinar y reparar el disco C.\n" +
+"\nCorrige los errores que encuentra (/f): Si la utilidad encuentra errores en el disco, intentará corregirlos automáticamente.\n" +
+"\nLocaliza los sectores defectuosos y recupera la información que se puede leer (/r): Además de corregir los errores, la utilidad también intentará recuperar la información de los sectores defectuosos del disco.\n" +
+"\nPor lo tanto, el comando completo chkdsk c: /f /r le pide a tu computadora que examine el disco C, corrija cualquier error que encuentre y recupere la información de los sectores defectuosos. Es una forma de mantener la salud de tu disco duro y prevenir la pérdida de datos";
         
         text(definicion);
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -323,7 +315,7 @@ definicion = "al ejecutar winsat formal -v, está solicitando una evaluación co
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-              definicion = "Este apartado lo que hace es que hay 3 meseros y 10 clientes, cada mesero es un hilo y se ejecuta al mismo tiempo debido a la concurrencia\n";
+              definicion = "Este apartado es una simulacion de como funcionan los hilos de forma grafica, lo que hace es que hay 3 meseros y 10 clientes, cada mesero es un hilo y se ejecuta al mismo tiempo debido a la concurrencia\n";
         
         text(definicion);
     }//GEN-LAST:event_jButton8ActionPerformed
