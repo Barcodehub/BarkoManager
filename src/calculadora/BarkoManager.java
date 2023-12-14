@@ -35,7 +35,6 @@ public class BarkoManager extends javax.swing.JFrame {
      */
     public BarkoManager() {
         initComponents();
-        
         setLocationRelativeTo(null);
     }
 
@@ -58,8 +57,6 @@ public class BarkoManager extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
@@ -139,24 +136,6 @@ public class BarkoManager extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setBackground(new java.awt.Color(204, 255, 255));
-        jButton8.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
-        jButton8.setText("desactivar servicios innecesarios");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-
-        jButton9.setBackground(new java.awt.Color(204, 255, 255));
-        jButton9.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
-        jButton9.setText("Re-activar servicios innecesarios");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-
         jButton10.setBackground(new java.awt.Color(204, 255, 255));
         jButton10.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
         jButton10.setText("Rendimiento/Apariencia");
@@ -194,35 +173,32 @@ public class BarkoManager extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(96, 96, 96)
-                                .addComponent(jButton12)
-                                .addGap(59, 59, 59)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton9)
-                                    .addComponent(jButton8)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jButton5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton10))
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addComponent(jButton2)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jButton3)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(108, 108, 108)))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jButton7)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButton6)))))
+                                .addComponent(jButton5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton10))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jButton2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jButton3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(108, 108, 108)))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jButton12)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(27, 27, 27))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jButton7)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jButton6))))
                         .addGap(0, 13, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
@@ -233,8 +209,8 @@ public class BarkoManager extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -242,22 +218,18 @@ public class BarkoManager extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton10))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7)
-                    .addComponent(jButton6))
-                .addGap(18, 18, 18)
-                .addComponent(jButton8)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(49, Short.MAX_VALUE))
+                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -268,7 +240,7 @@ public class BarkoManager extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -468,111 +440,6 @@ public class BarkoManager extends javax.swing.JFrame {
         worker.execute();
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-
-        areatext1.append("Activando servicios desactivados...\n");
-        SwingWorker<Void, String> worker = new SwingWorker<Void, String>() {
-            @Override
-            protected Void doInBackground() throws Exception {
-                Process process = null;
-                for (int i = 0; i < 3; i++) {
-                    if (i==0){
-                        areatext1.append("Descativando servicios de xbox\n");
-                        process = Runtime.getRuntime().exec("cmd /c sc start XblAuthManager && sc config XblAuthManager start= auto\n" +
-                            "    sc start XblGameSave && sc config XblGameSave start= auto\n" +
-                            "    sc start XboxNetApiSvc && sc config XboxNetApiSvc start= auto\n" +
-                            "    sc start XboxGipSvc && sc config XboxGipSvc start= auto");
-                    }
-                    else if (i==1){
-                        areatext1.append("Descativando servicios de impresion\n");
-                        process = Runtime.getRuntime().exec("cmd /c sc start WpcMonSvc && sc config WpcMonSvc start= auto\n" +
-                            "    sc start RmSvc && sc config RmSvc start= auto\n" +
-                            "    sc start Ifsvc && sc config Ifsvc start= auto\n" +
-                            "    sc start Wisvc && sc config Wisvc start= auto\n" +
-                            "    sc start InstallService && sc config InstallService start= auto\n" +
-                            "    sc start TapiSrv && sc config TapiSrv start= auto");
-                    }
-                    else if (i==2){
-                        areatext1.append("Descativando servicios de control parental\n");
-                        process = Runtime.getRuntime().exec("cmd /c sc start WpcMonSvc && sc config WpcMonSvc start= auto\n" +
-                            "    sc stop RmSvc && sc config RmSvc start= auto\n" +
-                            "    sc stop Ifsvc && sc config Ifsvc start= auto\n" +
-                            "    sc stop Wisvc && sc config Wisvc start= auto\n" +
-                            "    sc stop InstallService && sc config InstallService start= auto\n" +
-                            "    sc stop TapiSrv && sc config TapiSrv start= auto");
-                    }
-
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        publish(line);
-                    }
-                }
-                return null;
-            }
-
-            @Override
-            protected void process(List<String> chunks) {
-                for (String line : chunks) {
-                    areatext1.append(line + "\n");
-                }
-            }
-        };
-        worker.execute();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-
-        areatext1.append("Desactivandose servicios innecesario...\n");
-        SwingWorker<Void, String> worker = new SwingWorker<Void, String>() {
-            @Override
-            protected Void doInBackground() throws Exception {
-                Process process = null;
-                for (int i = 0; i < 3; i++) {
-                    if (i==0){
-                        areatext1.append("Descativando servicios de xbox\n");
-                        process = Runtime.getRuntime().exec("cmd /c sc stop XblAuthManager && sc config XblAuthManager start= disabled\n" +
-                            "    sc stop XblGameSave && sc config XblGameSave start= disabled\n" +
-                            "    sc stop XboxNetApiSvc && sc config XboxNetApiSvc start= disabled\n" +
-                            "    sc stop XboxGipSvc && sc config XboxGipSvc start= disabled");
-                    }
-                    else if (i==1){
-                        areatext1.append("Descativando servicios de impresion\n");
-                        process = Runtime.getRuntime().exec("cmd /c sc stop Spooler && sc config Spooler start= disabled\n" +
-                            "    sc stop DiagTrack && sc config DiagTrack start= disabled\n" +
-                            "    sc stop PrintNotify && sc config PrintNotify start= disabled\n" +
-                            "    sc stop Fax && sc config Fax start= disabled\n" +
-                            "    sc stop NgcSvc && sc config NgcSvc start= disabled");
-                    }
-                    else if (i==2){
-                        areatext1.append("Descativando servicios de control parental\n");
-                        process = Runtime.getRuntime().exec("cmd /c sc stop WpcMonSvc && sc config WpcMonSvc start= disabled\n" +
-                            "    sc stop RmSvc && sc config RmSvc start= disabled\n" +
-                            "    sc stop Ifsvc && sc config Ifsvc start= disabled\n" +
-                            "    sc stop Wisvc && sc config Wisvc start= disabled\n" +
-                            "    sc stop InstallService && sc config InstallService start= disabled\n" +
-                            "    sc stop TapiSrv && sc config TapiSrv start= disabled");
-                    }
-
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        publish(line);
-                    }
-                }
-                return null;
-            }
-
-            @Override
-            protected void process(List<String> chunks) {
-                for (String line : chunks) {
-                    areatext1.append(line + "\n");
-                }
-            }
-        };
-        worker.execute();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
-
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
       
         try {
@@ -650,8 +517,6 @@ public class BarkoManager extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
