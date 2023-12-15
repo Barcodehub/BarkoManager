@@ -20,6 +20,7 @@ import javax.swing.JOptionPane;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import javax.swing.JFrame;
@@ -385,20 +386,34 @@ public class BarkoManager extends javax.swing.JFrame {
      areatext1.append("Chequear unidad de DISCO y arreglar \"chkdsk C: /F /R...\n");
     SwingWorker<Void, String> worker = new SwingWorker<Void, String>() {
         @Override
-        protected Void doInBackground() throws Exception {
-            Process process = Runtime.getRuntime().exec("cmd /c chkdsk C: /F /R");
+         protected Void doInBackground() throws Exception {
+            ProcessBuilder builder = new ProcessBuilder("cmd");
+            builder.redirectErrorStream(true);
+            Process process = builder.start();
+            
+            PrintWriter writer = new PrintWriter(process.getOutputStream());
+            writer.println("chkdsk C: /F /R");
+            writer.flush();
+            
             InputStream inputStream = process.getInputStream();
-            int ch;
-            while((ch = inputStream.read()) != -1) {
-                publish(String.valueOf((char)ch));
-            }
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            String line;
+            
+                    writer.println("Y");
+                    writer.flush();
+                    // Leer la respuesta del cmd después de enviar la "Y"
+                    while((line = reader.readLine()) != null) {
+                        publish(line);
+                    }
+                
+          
             return null;
         }
 
         @Override
         protected void process(List<String> chunks) {
-            for (String character : chunks) {
-                areatext1.append(character);
+            for (String line : chunks) {
+                areatext1.append(line + "\n");
             }
         }
     };

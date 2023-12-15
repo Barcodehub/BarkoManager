@@ -1,6 +1,8 @@
 
 ![BarkoManager](src/images/calculator.png)
 
+Importante ejecutar como Administrador!!
+
 # BarkoManager o Administrar y optimizar el rendimiento en Windows
 Aplicacion desktop para administrar y mejorar el rendimiento en Windows 10 y Windows 11. 
 
