@@ -6,6 +6,8 @@ package calculadora;
 
 import java.awt.Color;
 import java.awt.Frame;
+import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
@@ -16,6 +18,8 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import javax.swing.JFrame;
@@ -29,13 +33,15 @@ public class BarkoManager extends javax.swing.JFrame {
      ScriptEngineManager sem = new ScriptEngineManager();
     ScriptEngine se = sem.getEngineByName("JavaScript");
     
-    
+    private OutputStream outputStream;
     /**
      * Creates new form NewJFrame
      */
     public BarkoManager() {
         initComponents();
         setLocationRelativeTo(null);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/icono.png")));
+        initCmdProcess();
     }
 
     /**
@@ -69,6 +75,7 @@ public class BarkoManager extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("BarkoManager");
+        setBackground(new java.awt.Color(0, 51, 255));
         setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(0, 51, 255));
@@ -138,7 +145,7 @@ public class BarkoManager extends javax.swing.JFrame {
 
         jButton10.setBackground(new java.awt.Color(204, 255, 255));
         jButton10.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
-        jButton10.setText("Rendimiento/Apariencia");
+        jButton10.setText("Apartado visual");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
@@ -164,6 +171,11 @@ public class BarkoManager extends javax.swing.JFrame {
 
         areatext1.setColumns(20);
         areatext1.setRows(5);
+        areatext1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                areatext1KeyPressed(evt);
+            }
+        });
         jScrollPane3.setViewportView(areatext1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -176,7 +188,7 @@ public class BarkoManager extends javax.swing.JFrame {
                         .addGap(31, 31, 31)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jButton5)
+                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton10))
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -218,10 +230,12 @@ public class BarkoManager extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(12, 12, 12)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                     .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -369,26 +383,27 @@ public class BarkoManager extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
      areatext1.append("Chequear unidad de DISCO y arreglar \"chkdsk C: /F /R...\n");
-        SwingWorker<Void, String> worker = new SwingWorker<Void, String>() {
-            @Override
-            protected Void doInBackground() throws Exception {
-                Process process = Runtime.getRuntime().exec("cmd /c chkdsk C: /F /R");
-                BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    publish(line);
-                }
-                return null;
+    SwingWorker<Void, String> worker = new SwingWorker<Void, String>() {
+        @Override
+        protected Void doInBackground() throws Exception {
+            Process process = Runtime.getRuntime().exec("cmd /c chkdsk C: /F /R");
+            InputStream inputStream = process.getInputStream();
+            int ch;
+            while((ch = inputStream.read()) != -1) {
+                publish(String.valueOf((char)ch));
             }
+            return null;
+        }
 
-            @Override
-            protected void process(List<String> chunks) {
-                for (String line : chunks) {
-                    areatext1.append(line + "\n");
-                }
+        @Override
+        protected void process(List<String> chunks) {
+            for (String character : chunks) {
+                areatext1.append(character);
             }
-        };
-        worker.execute();        // TODO add your handling code here:
+        }
+    };
+    worker.execute();       // TODO add your handling code here:
+    
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -461,6 +476,57 @@ public class BarkoManager extends javax.swing.JFrame {
         this.dispose();
         b.setVisible(true);
     }//GEN-LAST:event_jButton12ActionPerformed
+
+    
+    
+    
+    
+    
+    private void initCmdProcess() {
+        try {
+            Process process = Runtime.getRuntime().exec("cmd");
+            outputStream = process.getOutputStream();
+            
+            SwingWorker<Void, String> worker = new SwingWorker<Void, String>() {
+                @Override
+                protected Void doInBackground() throws Exception {
+                    InputStream inputStream = process.getInputStream();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+                    String line;
+                    while((line = reader.readLine()) != null) {
+                        publish(line + "\n");
+                    }
+                    return null;
+                }
+
+                @Override
+            protected void process(List<String> chunks) {
+                for (String line : chunks) {
+                    areatext1.append(line);
+                }
+            }
+            };
+            worker.execute();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    
+    private void areatext1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_areatext1KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        try {
+            String[] lines = areatext1.getText().split("\n");
+            String lastLine = lines[lines.length - 1];
+            outputStream.write((lastLine + "\n").getBytes());
+            outputStream.flush();
+            areatext1.setText("");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        evt.consume();
+    }
+    }//GEN-LAST:event_areatext1KeyPressed
 
     /**
      * @param args the command line arguments

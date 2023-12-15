@@ -1,6 +1,7 @@
 package restaurant;
 
 import java.awt.Color;
+import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
@@ -46,7 +47,9 @@ public class Restaurante {
         frame.setLayout(null);
         frame.setSize(800, 600);
         frame.getContentPane().setBackground(Color.MAGENTA);
-        
+        frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/icono.png")));
+        frame.setResizable(false); 
+         
         clientesGUI = new ClienteGUI[NUM_CLIENTES];
         for (int i = 0; i < NUM_CLIENTES; i++) {
             clientesGUI[i] = new ClienteGUI();
@@ -68,7 +71,11 @@ public class Restaurante {
         frame.add(infoButton);
         frame.setVisible(true);
         
-        
+        // texto
+        JLabel label = new JLabel("Elaborado por Brayan Barco en la materia de Sistemas Operativos :)");
+        label.setBounds(400, frame.getHeight() - 80, frame.getWidth(), 50); 
+        frame.add(label); 
+        frame.setVisible(true);
         
         //Boton detener forzada ejecucion de hilos
         stopfButton = new JButton("Detener forzado");
@@ -86,14 +93,14 @@ public class Restaurante {
         
         //Boton Replay
         replayButton = new JButton("Replay");
-        replayButton.setBounds(50, 325, 100, 50);
+        replayButton.setBounds(420, 250, 100, 50);
         replayButton.addActionListener(e -> replay());
         frame.add(replayButton);
         frame.setVisible(true);
         
-        //Boton gresar
+        //Boton Regresar
         backButton = new JButton("Regresar");
-        backButton.setBounds(430, 250, 100, 50);
+        backButton.setBounds(520, 250, 100, 50);
         backButton.addActionListener(e -> regresar());
         frame.add(backButton);
         frame.setVisible(true);
@@ -207,7 +214,7 @@ public void clienteAtendido(int indexClienteAtendido) {
             } 
                  
              }
-           
+           //https://github.com/Barcodehub
         }
     }
 }

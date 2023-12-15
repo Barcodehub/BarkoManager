@@ -4,6 +4,9 @@
  */
 package calculadora;
 
+
+import java.awt.Toolkit;
+
 /**
  *
  * @author BRAYAN
@@ -15,6 +18,7 @@ public class documentacion extends javax.swing.JFrame {
      */
     public documentacion() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/icono.png")));
     }
 String definicion = "";
 
@@ -47,7 +51,7 @@ String definicion = "";
         jButton6 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("BarkoManager_Documentacion");
@@ -71,7 +75,7 @@ String definicion = "";
 
         jButton2.setBackground(new java.awt.Color(204, 255, 255));
         jButton2.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
-        jButton2.setText("Optimizar Windows");
+        jButton2.setText("Optimizar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -132,12 +136,12 @@ String definicion = "";
             }
         });
 
-        jButton11.setBackground(new java.awt.Color(204, 255, 255));
-        jButton11.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
-        jButton11.setText("Rendimiento/Apariencia");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        jButton13.setBackground(new java.awt.Color(204, 255, 255));
+        jButton13.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        jButton13.setText("Rendimiento/Apariencia");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                jButton13ActionPerformed(evt);
             }
         });
 
@@ -146,33 +150,34 @@ String definicion = "";
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton8)
-                        .addGap(20, 20, 20))
+                        .addGap(25, 25, 25)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jButton10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 285, Short.MAX_VALUE)
+                                .addComponent(jButton8))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(7, 7, 7)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jButton1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jButton2))
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addComponent(jButton4)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jButton6))
+                                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton2))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jButton4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton6))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addComponent(jButton11)))
-                        .addGap(95, 95, 95)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(95, 95, 95)
+                        .addComponent(jButton13)))
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(9, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,7 +195,7 @@ String definicion = "";
                 .addGap(18, 18, 18)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                 .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton10)
@@ -206,7 +211,7 @@ String definicion = "";
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 925, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -311,8 +316,9 @@ definicion = "al ejecutar winsat formal -v, está solicitando una evaluación co
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
               definicion = "Este apartado es una simulacion de como funcionan los hilos de forma grafica, lo que hace es que hay 3 meseros y 10 clientes, cada mesero es un hilo y se ejecuta al mismo tiempo debido a la concurrencia\n"
-                      + "\nLuego de atender a los primeros 10 clientes, el programa ahora crea un nuevo cliente cada 1 segundo después que un cliente es atendido justo en los espacios vacíos dejados por los clientes satisfechos"
-                      + "\n\nhay un limite de Clientes que llegan al Restaurante, una vez todos han sido atendidos, el Restaurante cierra sus puertas\n" +
+                      + "\nLuego de atender a los primeros 10 clientes, el programa ahora crea un nuevo cliente cada 1 segundo después que un cliente es atendido justo en los espacios vacíos dejados por los clientes satisfechos, "
+                      + "simulando asi la llegada de un nuevo Cliente"
+                      + "\n\nhay un limite de Clientes(20) que llegan al Restaurante, una vez todos han sido atendidos, el Restaurante cierra sus puertas\n" +
 "Se implementa un botón de Re-play que detiene la ejecución y vuelve a empezar; además de un botón de Regresar para volver a la pantalla del BarkoManager y el botón detener se divide en 2, uno de detención forzada y detención "
                       + "por medio de la interrupción a los hilos, ahora te dice cuántos clientes alcanzaron a ser atendidos.";
         
@@ -325,13 +331,12 @@ definicion = "al ejecutar winsat formal -v, está solicitando una evaluación co
        b.setVisible(true);
     }//GEN-LAST:event_jButton10ActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-
-        definicion = "Apartado visual de Windows\nComando con el cual carga el apartado para priorizar ya sea el rendimiento o la apariencia de Windows, lo normal es en default"
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+         definicion = "Apartado visual de Windows\nComando con el cual carga el apartado para priorizar ya sea el rendimiento o la apariencia de Windows, lo normal es en default"
                 + "\nSystemPropertiesPerformance.exe";
         
         text(definicion);
-    }//GEN-LAST:event_jButton11ActionPerformed
+    }//GEN-LAST:event_jButton13ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -372,7 +377,7 @@ definicion = "al ejecutar winsat formal -v, está solicitando una evaluación co
     private javax.swing.JTextArea areatext;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
