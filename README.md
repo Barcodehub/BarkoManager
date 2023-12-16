@@ -1,5 +1,5 @@
 
-![BarkoManager](src/images/calculator.png)
+![BarkoManager](src/images/calculator2.png)
 
 Importante ejecutar como Administrador!!
 
