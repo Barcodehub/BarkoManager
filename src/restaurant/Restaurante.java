@@ -72,7 +72,7 @@ public class Restaurante {
         frame.setVisible(true);
         
         // texto
-        JLabel label = new JLabel("Elaborado por Brayan Barco en la materia de Sistemas Operativos :)");
+        JLabel label = new JLabel("App :)");
         label.setBounds(400, frame.getHeight() - 80, frame.getWidth(), 50); 
         frame.add(label); 
         frame.setVisible(true);
