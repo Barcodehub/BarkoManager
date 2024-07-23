@@ -40,6 +40,16 @@ Este proyecto incluye un ejemplo sencillo de cómo implementar concurrencia en J
 
 5. **Espera activa**: La espera activa se utiliza en este código para simular el tiempo que tarda un `Mesero` en atender a un `Cliente`. Esto se logra haciendo que el hilo `Mesero` duerma durante un tiempo aleatorio.
 
+## Documentación
+
+La documentación completa del proyecto está disponible en [este PDF](./manual.pdf).
+
+## Demostración
+
+Para ver una demostración de la aplicación en funcionamiento, puedes ver este video:
+
+[![BarkoManager](https://img.youtube.com/vi/LxVMOVdj3c4/0.jpg)](https://www.youtube.com/watch?v=LxVMOVdj3c4)
+
 # Autor ✒️
 Brayan Barco
 # Licencia 📄
